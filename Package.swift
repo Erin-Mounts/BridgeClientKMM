@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "BridgeClient",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v14)
     ],
@@ -22,7 +23,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "SharedMobileUI",
                  url: "https://github.com/Sage-Bionetworks/SharedMobileUI-AppleOS.git",
-                 from: "0.5.0"),
+                 from: "0.9.0"),
         .package(name: "BridgeArchiver",
                  url: "https://github.com/Sage-Bionetworks/BridgeArchiver-Swift.git",
                  from: "0.3.0"),
@@ -49,6 +50,9 @@ let package = Package(
                     .product(name: "Research", package: "SageResearch"),
                     .product(name: "ResearchUI", package: "SageResearch"),
                 ],
-                path: "SwiftPackage/Sources/BridgeClientUI")
+                path: "SwiftPackage/Sources/BridgeClientUI",
+                resources: [
+                    .process("Resources")
+                ])
     ]
 )
